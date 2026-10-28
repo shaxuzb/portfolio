@@ -1,11 +1,1 @@
-{
-  "version": 4,
-  "routes": {},
-  "dynamicRoutes": {},
-  "notFoundRoutes": [],
-  "preview": {
-    "previewModeId": "270649c41e11c7a7a9ae33903bec50b3",
-    "previewModeSigningKey": "1ecb5ab59c92d495edb5e33699aefc1fa03a69b347d59d04a6e22c8f52d53824",
-    "previewModeEncryptionKey": "626abce21365a903d24971e151c303dc9d3924f89ff161e5ced070d3fa93baee"
-  }
-}
+{"version":4,"routes":{"/work/nst-control":{},"/work/daqiq":{},"/work/qarz-daftar":{},"/work/baxt":{}},"dynamicRoutes":{"/work/[slug]":{"dataRoute":null,"dataRouteRegex":null,"fallback":null,"fallbackRevalidate":false,"fallbackSourceRoute":"/work/[slug]","routeRegex":"^\\/work\\/([^/]+?)(?:\\/)?$","allowHeader":[]}},"notFoundRoutes":[],"preview":{"previewModeId":"3f09343f95f217c1ce5d2feaa1d79ea2","previewModeSigningKey":"c83efb94ec95a996af4b6c63325f061795cef910f4dc071618a80c1b04879a9c","previewModeEncryptionKey":"2744947925337b9ebe2385bcae5c5225ff458b89a0b706296b2ad510b07e2a6d"}}
