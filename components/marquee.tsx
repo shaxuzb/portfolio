@@ -1,8 +1,12 @@
-import { Asterisk } from "lucide-react"
+"use client"
 
-const words = ["React", "React Native", "Next.js", "TypeScript", "SaaS", "ERP", "CRM", "Dashboards", "Expo", "Offline-first"]
+import { Asterisk } from "lucide-react"
+import { ui } from "@/lib/i18n"
+import { useLang } from "@/components/lang-provider"
 
 export default function Marquee() {
+  const { lang } = useLang()
+  const words = ui.marquee[lang]
   const row = (
     <div className="flex shrink-0 items-center" aria-hidden>
       {words.map((w, i) => (

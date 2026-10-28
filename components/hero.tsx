@@ -6,9 +6,13 @@ import { useRef } from "react"
 import { motion, useScroll, useTransform } from "motion/react"
 import { ArrowDownRight, ArrowUpRight } from "lucide-react"
 import { profile, projects, stats } from "@/lib/data"
-import { CountUp, FadeIn, LineReveal, Magnetic } from "@/components/reveal"
+import { ui } from "@/lib/i18n"
+import { CountUp, FadeIn, Magnetic } from "@/components/reveal"
+import Headline from "@/components/headline"
+import { useLang } from "@/components/lang-provider"
 
 export default function Hero() {
+  const { t, href } = useLang()
   const ref = useRef<HTMLElement>(null)
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] })
   const headlineY = useTransform(scrollYProgress, [0, 1], ["0%", "-18%"])
@@ -21,33 +25,28 @@ export default function Hero() {
         <FadeIn className="flex flex-wrap items-center justify-between gap-4 border-b border-line pb-5" y={10}>
           <p className="label flex items-center gap-2">
             <span className="size-1.5 rounded-full bg-ok animate-pulse-dot" />
-            {profile.availability}
+            {t(profile.availability)}
           </p>
-          <p className="label hidden sm:block">{profile.focus}</p>
+          <p className="label hidden sm:block">{t(profile.focus)}</p>
           <p className="label">
-            {profile.location} · {profile.timezoneLabel}
+            {t(profile.location)} · {profile.timezoneLabel}
           </p>
         </FadeIn>
 
         <motion.div style={{ y: headlineY, opacity: fade }} className="mt-10 sm:mt-16 lg:mt-20">
-          <LineReveal
+          <Headline
             as="h1"
             delay={0.15}
-            className="text-[clamp(3.1rem,10.4vw,10.5rem)] font-medium leading-[0.92] tracking-[-0.045em]"
-            lines={[
-              "Software that",
-              <>
-                businesses <span className="whitespace-nowrap font-serif font-normal italic tracking-[-0.02em] text-paper-dim">run on.</span>
-              </>,
-            ]}
+            className="text-[clamp(2.6rem,9vw,9.25rem)] font-medium leading-[0.94] tracking-[-0.045em]"
+            emClassName="font-serif font-normal italic tracking-[-0.02em] text-paper-dim"
+            lines={ui.hero.headline}
           />
         </motion.div>
 
         <div className="mt-12 grid flex-1 items-end gap-10 pb-10 lg:mt-16 lg:grid-cols-12 lg:gap-8">
           <FadeIn delay={0.5} className="lg:col-span-5">
-            <p className="max-w-[34ch] text-xl leading-snug text-paper-dim sm:text-2xl">
-              I&apos;m <span className="text-paper">{profile.shortName}</span>, a React & React Native developer building SaaS
-              platforms, ERP & CRM systems and mobile apps for real business workflows.
+            <p className="max-w-[36ch] text-xl leading-snug text-paper-dim sm:text-2xl">
+              {t(ui.hero.iAm)} <span className="text-paper">{t(profile.name)}</span> — {t(ui.hero.intro)}
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <Magnetic>
@@ -55,42 +54,44 @@ export default function Hero() {
                   href="#work"
                   className="group inline-flex items-center gap-3 rounded-full bg-paper py-3 pl-6 pr-3 text-[15px] font-medium text-ink"
                 >
-                  Selected work
+                  {t(ui.hero.selectedWork)}
                   <span className="grid size-8 place-items-center rounded-full bg-ink text-paper transition-transform duration-500 ease-[var(--ease-out-expo)] group-hover:rotate-[-45deg]">
                     <ArrowDownRight size={16} />
                   </span>
                 </a>
               </Magnetic>
               <a
-                href={profile.upwork}
+                href={`https://t.me/${profile.telegram}`}
                 target="_blank"
                 rel="noreferrer"
                 className="group inline-flex items-center gap-2 rounded-full border border-line-strong px-6 py-[17px] text-[15px] transition-colors hover:border-paper"
               >
-                Upwork profile
+                Telegram
                 <ArrowUpRight size={16} className="transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </a>
             </div>
           </FadeIn>
 
-          <FadeIn delay={0.65} className="lg:col-span-4 lg:col-start-9">
+          <FadeIn delay={0.65} className="lg:col-span-5 lg:col-start-8">
             <Link
-              href={`/work/${featured.slug}`}
-              data-cursor="View"
+              href={href(`/work/${featured.slug}`)}
+              data-cursor={t(ui.cursor.view)}
               className="group block overflow-hidden rounded-xl border border-line bg-ink-2"
             >
-              <div className="relative aspect-[4/3] overflow-hidden">
+              <div className="relative aspect-[16/9] overflow-hidden">
                 <Image
-                  src={featured.cover}
-                  alt={`${featured.name} — ${featured.title}`}
+                  src={featured.cover.src}
+                  alt={`${featured.name} — ${t(featured.title)}`}
                   fill
                   priority
-                  sizes="(min-width: 1024px) 33vw, 100vw"
+                  sizes="(min-width: 1024px) 42vw, 100vw"
                   className="object-cover transition-transform duration-[1.4s] ease-[var(--ease-out-expo)] group-hover:scale-[1.04]"
                 />
               </div>
               <div className="flex items-center justify-between px-4 py-3">
-                <span className="label">Latest — {featured.name}</span>
+                <span className="label">
+                  {t(ui.hero.nowDesigning)} — {featured.name}
+                </span>
                 <ArrowUpRight size={16} className="text-paper-dim transition-colors group-hover:text-paper" />
               </div>
             </Link>
@@ -102,16 +103,16 @@ export default function Hero() {
         <div className="container-x grid grid-cols-2 lg:grid-cols-4">
           {stats.map((s, i) => (
             <FadeIn
-              key={s.label}
+              key={s.label.en}
               delay={0.2 + i * 0.08}
-              className={`py-7 pr-4 sm:py-9 ${i % 2 === 1 ? "pl-5 sm:pl-8" : ""} ${
-                i > 0 ? "lg:border-l lg:border-line lg:pl-8" : ""
-              } ${i % 2 === 1 ? "border-l border-line" : ""} ${i < 2 ? "border-b border-line lg:border-b-0" : ""}`}
+              className={`py-7 pr-4 sm:py-9 ${i % 2 === 1 ? "border-l border-line pl-5 sm:pl-8" : ""} ${
+                i === 2 ? "lg:border-l lg:border-line lg:pl-8" : ""
+              } ${i < 2 ? "border-b border-line lg:border-b-0" : ""}`}
             >
               <p className="text-5xl font-medium tracking-[-0.04em] sm:text-6xl">
-                <CountUp to={s.value} suffix={s.suffix} />
+                <CountUp to={s.value} prefix={s.prefix} suffix={t(s.suffix)} />
               </p>
-              <p className="mt-3 max-w-[24ch] text-sm leading-snug text-paper-dim">{s.label}</p>
+              <p className="mt-3 max-w-[24ch] text-sm leading-snug text-paper-dim">{t(s.label)}</p>
             </FadeIn>
           ))}
         </div>

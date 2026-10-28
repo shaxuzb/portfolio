@@ -63,7 +63,7 @@ export function FadeIn({
   )
 }
 
-export function CountUp({ to, suffix = "" }: { to: number; suffix?: string }) {
+export function CountUp({ to, prefix = "", suffix = "" }: { to: number; prefix?: string; suffix?: string }) {
   const ref = useRef<HTMLSpanElement>(null)
   const inView = useInView(ref, { once: true })
   useEffect(() => {
@@ -72,11 +72,15 @@ export function CountUp({ to, suffix = "" }: { to: number; suffix?: string }) {
     const controls = animate(0, to, {
       duration: 1.8,
       ease,
-      onUpdate: (v) => (node.textContent = Math.round(v) + suffix),
+      onUpdate: (v) => (node.textContent = prefix + Math.round(v) + suffix),
     })
     return () => controls.stop()
-  }, [inView, to, suffix])
-  return <span ref={ref}>0{suffix}</span>
+  }, [inView, to, prefix, suffix])
+  return (
+    <span ref={ref}>
+      {prefix}0{suffix}
+    </span>
+  )
 }
 
 // Element drifts toward the pointer while hovered.

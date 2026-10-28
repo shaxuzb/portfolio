@@ -15,10 +15,11 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
 
     // Route in-page anchor links through Lenis so they ease instead of jumping.
     const onClick = (e: MouseEvent) => {
-      const a = (e.target as HTMLElement).closest<HTMLAnchorElement>('a[href^="#"]')
-      if (!a) return
-      const id = a.getAttribute("href")!
-      const el = id === "#" ? document.body : document.querySelector(id)
+      // Handles "#work" and "/ru#work" when already on that page.
+      const a = (e.target as HTMLElement).closest<HTMLAnchorElement>("a[href*='#']")
+      if (!a || a.pathname !== location.pathname || !a.hash) return
+      const id = a.hash
+      const el = document.querySelector(id)
       if (!el) return
       e.preventDefault()
       lenis.scrollTo(el as HTMLElement, { offset: 0 })
