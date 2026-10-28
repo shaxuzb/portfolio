@@ -22,21 +22,24 @@
   },
   "dynamicRoutes": [
     {
-      "page": "/work/[slug]",
-      "regex": "^/work/([^/]+?)(?:/)?$",
+      "page": "/[lang]",
+      "regex": "^/([^/]+?)(?:/)?$",
       "routeKeys": {
+        "nxtPlang": "nxtPlang"
+      },
+      "namedRegex": "^/(?<nxtPlang>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/[lang]/work/[slug]",
+      "regex": "^/([^/]+?)/work/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPlang": "nxtPlang",
         "nxtPslug": "nxtPslug"
       },
-      "namedRegex": "^/work/(?<nxtPslug>[^/]+?)(?:/)?$"
+      "namedRegex": "^/(?<nxtPlang>[^/]+?)/work/(?<nxtPslug>[^/]+?)(?:/)?$"
     }
   ],
   "staticRoutes": [
-    {
-      "page": "/",
-      "regex": "^/(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/(?:/)?$"
-    },
     {
       "page": "/_global-error",
       "regex": "^/_global\\-error(?:/)?$",

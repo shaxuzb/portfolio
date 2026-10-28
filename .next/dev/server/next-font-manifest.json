@@ -1,16 +1,22 @@
 {
   "app": {
-    "[project]/app/page": [
+    "[project]/app/[lang]/page": [
+      "static/media/8a480f0b521d4e75-s.p.ea323500.woff2",
       "static/media/caa3a2e1cccd8315-s.p.3b6cae6d.woff2",
+      "static/media/4fa387ec64143e14-s.p.3b336396.woff2",
       "static/media/797e433ab948586e-s.p.29207c2f.woff2",
       "static/media/7ebf22b5a21034f8-s.p.d8bad3ab.woff2",
-      "static/media/e41d5df559864f9e-s.p.380d09ea.woff2"
+      "static/media/e41d5df559864f9e-s.p.380d09ea.woff2",
+      "static/media/5a7f2b61422ecdd2-s.p.a193c4e3.woff2"
     ],
-    "[project]/app/work/[slug]/page": [
+    "[project]/app/[lang]/work/[slug]/page": [
+      "static/media/8a480f0b521d4e75-s.p.ea323500.woff2",
       "static/media/caa3a2e1cccd8315-s.p.3b6cae6d.woff2",
+      "static/media/4fa387ec64143e14-s.p.3b336396.woff2",
       "static/media/797e433ab948586e-s.p.29207c2f.woff2",
       "static/media/7ebf22b5a21034f8-s.p.d8bad3ab.woff2",
-      "static/media/e41d5df559864f9e-s.p.380d09ea.woff2"
+      "static/media/e41d5df559864f9e-s.p.380d09ea.woff2",
+      "static/media/5a7f2b61422ecdd2-s.p.a193c4e3.woff2"
     ]
   },
   "appUsingSizeAdjust": true,

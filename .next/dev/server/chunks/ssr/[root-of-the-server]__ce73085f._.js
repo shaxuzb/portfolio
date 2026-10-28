@@ -158,10 +158,8 @@ __turbopack_context__.n(__TURBOPACK__imported__module__$5b$project$5d2f$componen
 "[project]/lib/data.ts [app-rsc] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-// Content sourced from the Upwork profile. Edit here; every section reads from this file.
+// Content sourced from Mahmud's CV and his Figma portfolio files. Every section reads from this file.
 __turbopack_context__.s([
-    "education",
-    ()=>education,
     "experience",
     ()=>experience,
     "languages",
@@ -174,441 +172,645 @@ __turbopack_context__.s([
     ()=>projects,
     "services",
     ()=>services,
-    "stack",
-    ()=>stack,
+    "skills",
+    ()=>skills,
     "stats",
     ()=>stats
 ]);
 const profile = {
-    name: "Shax Achilov",
-    shortName: "Shax",
-    role: "React & React Native Developer",
-    focus: "SaaS · ERP · CRM · Mobile",
-    location: "Uzbekistan",
+    name: "Mahmud Namazov",
+    firstName: "Mahmud",
+    role: "Product Designer",
+    focus: "SaaS · CRM · ERP · Web & Mobile",
+    location: "Tashkent, Uzbekistan",
     timezone: "Asia/Tashkent",
     timezoneLabel: "UTC+5",
-    availability: "Available for new projects",
-    hours: "30+ hrs / week",
-    upwork: "https://www.upwork.com/freelancers/~010901f3f9d39c8a86",
-    // Add a public email to show a direct mail link next to Upwork.
-    email: "",
-    intro: "I build SaaS platforms, ERP systems, CRM applications, admin dashboards and React Native apps that solve real business problems.",
+    availability: "Open to product design roles",
+    email: "mahmudnamazov2006@gmail.com",
+    phone: "+998 91 088 29 07",
+    telegram: "mvhsww",
+    intro: "Product designer with almost four years in B2B SaaS. I design CRM, ERP and mobile products end-to-end — from the spec to screens developers can actually ship.",
     about: [
-        "Most of what I ship sits behind a login: the tools a business opens every morning to track its people, stock, money and customers. That work rewards clear thinking about workflows more than clever UI, and that is where I spend my attention.",
-        "I have 3+ years of frontend experience across web and mobile, including mentoring developers at IT Park Uzbekistan. I like joining products that already exist, understanding the architecture, and extending it without starting over."
+        "I lead design for two business products, on web and mobile: an ecosystem for real-estate developers and a SaaS for managing construction. I built the company's first design system from scratch.",
+        "I work inside the product team. I read the spec, work through edge cases and every user role, and hand off layouts that can really be built — then stay with the feature through sprints until it reaches production intact."
     ]
 };
 const stats = [
     {
-        value: 211,
-        suffix: "",
-        label: "Field employees tracked daily on NST Control"
+        value: 4,
+        prefix: "~",
+        suffix: " yrs",
+        label: "Designing B2B SaaS products"
     },
     {
-        value: 531,
+        value: 10,
+        prefix: "",
         suffix: "",
-        label: "Users managing debts on Qarz Daftar"
+        label: "Products across web and mobile"
     },
     {
-        value: 5,
-        suffix: "",
-        label: "Retail stores running on Daqiq ERP"
-    },
-    {
-        value: 3,
+        value: 380,
+        prefix: "",
         suffix: "+",
-        label: "Years building web & mobile products"
+        label: "Mobile screens designed for iOS & Android"
+    },
+    {
+        value: 16,
+        prefix: "",
+        suffix: "",
+        label: "Modules in the UYQUR construction ERP"
     }
 ];
+const cover = (dir, caption)=>({
+        src: `/work/${dir}/overview.webp`,
+        w: 2400,
+        h: 1350,
+        caption
+    });
 const projects = [
     {
-        slug: "nst-control",
-        index: "01",
-        name: "NST Control",
-        title: "Workforce tracking & field operations platform",
-        category: "Field Operations · SaaS",
-        year: "2026",
-        role: "Mobile & Frontend Developer",
-        summary: "A mobile app and management dashboard that replaces manual check-ins with live GPS, territory control and clear operational data.",
-        description: "NST Control is a workforce tracking and field operations platform with a mobile app and management dashboard. I worked on GPS tracking, territory monitoring, employee activity history, offline data synchronization, dashboard interfaces, API integrations, and state management. The system helps managers monitor field employees, review work sessions, track movement, and replace manual check-ins with clear operational data.",
+        slug: "uyqur",
+        name: "UYQUR",
+        kind: "saas",
+        category: "SaaS · Construction ERP",
+        title: "All-in-one platform for construction companies",
+        year: "2024 — present",
+        role: "Product Designer",
+        platform: "Web app",
+        scope: "16 modules · AI assistant",
+        summary: "Estimates, supply and tenders, cash, warehouse, works and analytics for construction companies — in one web platform.",
+        description: "UYQUR is a SaaS for managing construction projects. I own the product design end-to-end on web and mobile, turning dense business requirements into interfaces that people in very different roles — site managers, accountants, supply, owners — can work in every day. Each module is worked through for every role and edge case before it goes to development.",
         highlights: [
-            "GPS tracking with territory (geofence) monitoring",
-            "Offline-first sync for unreliable field connectivity",
-            "Employee activity history and work-session review",
-            "Management dashboard backed by live API data"
+            "Translated complex business requirements into clear interfaces for multi-role teams",
+            "Designed 16 modules: projects, estimates, supply & tenders, cash, warehouse, contracts and more",
+            "Nura — an AI assistant built into the product",
+            "Moved web scenarios to mobile with the same logic, so the product works from a phone"
         ],
-        stack: [
-            "React",
-            "React Native",
-            "TypeScript",
-            "GPS",
-            "Offline sync"
+        tags: [
+            "Web app",
+            "ERP",
+            "Dashboards",
+            "AI"
         ],
-        platforms: [
-            "Web dashboard",
-            "iOS",
-            "Android"
-        ],
-        metric: {
-            value: "211",
-            label: "field employees tracked daily"
-        },
-        live: "https://nstcontrol.richboy.uz",
-        accent: "#4C8DFF",
-        cover: "/work/nst-control/cover.webp",
+        accent: "#6F7CFF",
+        featured: true,
+        cover: cover("uyqur", "UYQUR — overview"),
         gallery: [
             {
-                src: "/work/nst-control/1.webp",
-                w: 1600,
-                h: 1200
+                src: "/work/uyqur/02-dashboards.webp",
+                w: 1800,
+                h: 3988,
+                caption: "Dashboards"
             },
             {
-                src: "/work/nst-control/2.webp",
-                w: 1600,
-                h: 1200
+                src: "/work/uyqur/03-projects.webp",
+                w: 2400,
+                h: 1662,
+                caption: "Projects"
             },
             {
-                src: "/work/nst-control/3.webp",
-                w: 1600,
-                h: 1200
+                src: "/work/uyqur/07-finance.webp",
+                w: 2400,
+                h: 3262,
+                caption: "Cash & finance"
             },
             {
-                src: "/work/nst-control/4.webp",
-                w: 1600,
-                h: 1200
-            },
-            {
-                src: "/work/nst-control/5.webp",
-                w: 1600,
-                h: 1200
-            },
-            {
-                src: "/work/nst-control/6.webp",
-                w: 1600,
-                h: 1200
-            },
-            {
-                src: "/work/nst-control/7.webp",
-                w: 1600,
-                h: 1200
-            },
-            {
-                src: "/work/nst-control/8.webp",
-                w: 1600,
-                h: 1200
+                src: "/work/uyqur/13-ai.webp",
+                w: 2400,
+                h: 2582,
+                caption: "Nura AI assistant"
             }
         ]
     },
     {
-        slug: "daqiq",
-        index: "02",
-        name: "Daqiq",
-        title: "Retail ERP & business operations platform",
-        category: "Retail ERP",
-        year: "2026",
-        role: "Web & Mobile Developer",
-        summary: "Sales, stock, finance and staff in one connected system across web, mobile, the till and a Telegram Mini App.",
-        description: "Daqiq is an ERP and business operations platform built for retail stores, warehouses, and sales teams. I worked across the web and mobile product, implementing finance dashboards, inventory workflows, product traceability, employee control, sales and purchasing flows, reporting, responsive UI, API integrations, state management, and mobile business views. The platform brings core operations into one connected ecosystem across web, mobile, and Telegram.",
+        slug: "uysot-crm",
+        name: "UYSOT CRM",
+        kind: "saas",
+        category: "SaaS · Real-estate CRM",
+        title: "Sales CRM for real-estate developers",
+        year: "2023 — present",
+        role: "Product Designer",
+        platform: "Web app",
+        scope: "Pipeline · Automation · AI agents",
+        summary: "Lead pipeline, call scripts, automation and AI agents that talk to clients — the sales core of the UYSOT ecosystem.",
+        description: "UYSOT is a software ecosystem for real-estate developers. I design its CRM alongside the mobile app and marketplace, keeping one UX approach across every product. The CRM interfaces were made consistent with the LUNAR design system I built from scratch, so new screens are assembled faster.",
         highlights: [
-            "Finance dashboards: net profit, cash and stock on one screen",
-            "Inventory, purchasing and product traceability workflows",
-            "Employee control and role-based reporting",
-            "One ecosystem across web, mobile and Telegram Mini App"
+            "Leads pipeline and a lead card that holds the full client history",
+            "No-code automation builder for routing and follow-ups",
+            "Call scripts, call-center widget and office meeting recording",
+            "Uysot AI agents that answer and qualify clients"
         ],
-        stack: [
-            "React",
-            "Next.js",
-            "React Native",
-            "TypeScript"
+        tags: [
+            "Web app",
+            "CRM",
+            "Automation",
+            "AI"
         ],
-        platforms: [
+        accent: "#2FBF71",
+        featured: true,
+        cover: cover("uysotcrm", "UYSOT CRM — overview"),
+        gallery: [
+            {
+                src: "/work/uysotcrm/01-pipeline.webp",
+                w: 2400,
+                h: 1664,
+                caption: "Leads pipeline"
+            },
+            {
+                src: "/work/uysotcrm/02-leadcard.webp",
+                w: 2400,
+                h: 1579,
+                caption: "Lead card"
+            },
+            {
+                src: "/work/uysotcrm/07-ai.webp",
+                w: 2400,
+                h: 2494,
+                caption: "Uysot AI"
+            }
+        ]
+    },
+    {
+        slug: "uyim",
+        name: "UYIM",
+        kind: "mobile",
+        category: "Mobile app · Property owners",
+        title: "The apartment buyer's app",
+        year: "2023 — present",
+        role: "Product Designer",
+        platform: "iOS & Android",
+        scope: "130 screens",
+        summary: "Pay instalments, manage contracts, follow construction progress, resell the apartment and design its interior with AI.",
+        description: "UYIM is the buyer-facing app of the UYSOT ecosystem. The home screen puts the amount due, stories and quick actions up front; around it sit payments, contracts, cards, live construction progress, market price, resale, new buildings and an AI interior designer. Every flow ships with its states — paid, overdue, failed, in two languages.",
+        highlights: [
+            "Instalment payments with clear due, paid and failed states",
+            "Live construction progress with camera feed and photo reports",
+            "Resale and market-price tracking for the buyer's apartment",
+            "AI interior design that generates room variants and a renovation estimate"
+        ],
+        tags: [
+            "iOS",
+            "Android",
+            "Fintech",
+            "AI"
+        ],
+        accent: "#2E9BFF",
+        featured: true,
+        cover: cover("uyim", "UYIM — overview"),
+        gallery: [
+            {
+                src: "/work/uyim/02-home.webp",
+                w: 2400,
+                h: 1824,
+                caption: "Home & notifications"
+            },
+            {
+                src: "/work/uyim/04-payments.webp",
+                w: 2400,
+                h: 1675,
+                caption: "Payments"
+            },
+            {
+                src: "/work/uyim/08-construction.webp",
+                w: 2400,
+                h: 922,
+                caption: "Construction progress"
+            },
+            {
+                src: "/work/uyim/12-ai.webp",
+                w: 2400,
+                h: 824,
+                caption: "AI interior design"
+            },
+            {
+                src: "/work/uyim/01-signin.webp",
+                w: 2400,
+                h: 694,
+                caption: "Sign-in & onboarding"
+            }
+        ]
+    },
+    {
+        slug: "driver-five",
+        name: "Driver Five",
+        kind: "mobile",
+        category: "Mobile app · Taxi drivers",
+        title: "Driver app for a taxi company",
+        year: "Nov 2025 — Jun 2026",
+        role: "Product Designer · Contract",
+        platform: "iOS & Android",
+        scope: "170+ screens · Light & Dark",
+        summary: "Going online, accepting orders, the trip from pickup to drop-off, earnings and profile — in one clear scenario.",
+        description: "Designed from zero: a mobile app for taxi drivers that covers onboarding with document checks, going online, new orders, pickup and waiting, the trip and payment, the order feed, wallet and tariffs, and earnings history. I prepared interactive prototypes so the team could validate the scenarios before development started.",
+        highlights: [
+            "One continuous flow from going online to drop-off and payment",
+            "Onboarding with document upload and verification",
+            "Earnings, wallet and tariffs drivers can read at a glance",
+            "Interactive prototypes used to test scenarios before development"
+        ],
+        tags: [
+            "iOS",
+            "Android",
+            "Light & Dark",
+            "Prototyping"
+        ],
+        accent: "#8B6CFF",
+        featured: true,
+        cover: cover("driver", "Driver Five — overview"),
+        gallery: [
+            {
+                src: "/work/driver/03-online.webp",
+                w: 2400,
+                h: 1879,
+                caption: "Going online & new orders"
+            },
+            {
+                src: "/work/driver/05-trip.webp",
+                w: 2400,
+                h: 2873,
+                caption: "Trip & payment"
+            },
+            {
+                src: "/work/driver/09-earnings.webp",
+                w: 2400,
+                h: 2530,
+                caption: "Earnings & history"
+            }
+        ]
+    },
+    {
+        slug: "uysot-dashboard",
+        name: "UYSOT Dashboard",
+        kind: "saas",
+        category: "SaaS · Analytics",
+        title: "Customizable sales & marketing dashboards",
+        year: "2023 — present",
+        role: "Product Designer",
+        platform: "Web & mobile",
+        scope: "Widget library · Funnels",
+        summary: "Sales and marketing dashboards for real-estate developers, assembled from a responsive widget library.",
+        description: "Managers build their own dashboard pages from a library of widgets — KPIs, funnels, campaign breakdowns and conversion trends. The widgets are designed once and adapt to any grid size and to mobile.",
+        highlights: [
+            "Sales dashboards with KPIs, funnels and conversion over time",
+            "Editable dashboard pages managers assemble themselves",
+            "Responsive widget library that scales from desktop to mobile"
+        ],
+        tags: [
+            "Web app",
+            "Analytics",
+            "Widgets"
+        ],
+        accent: "#34C38F",
+        cover: cover("dashboard", "UYSOT Dashboard — overview"),
+        gallery: [
+            {
+                src: "/work/dashboard/01-sales.webp",
+                w: 2400,
+                h: 1808,
+                caption: "Sales dashboards"
+            },
+            {
+                src: "/work/dashboard/04-widgets.webp",
+                w: 2400,
+                h: 1961,
+                caption: "Widget library"
+            }
+        ]
+    },
+    {
+        slug: "water-x",
+        name: "Water X",
+        kind: "mobile",
+        category: "Mobile apps · Water delivery",
+        title: "Client and courier apps for water delivery",
+        year: "2026",
+        role: "Product Designer · Contract (SUV OL)",
+        platform: "iOS & Android",
+        scope: "2 apps · 50+ screens",
+        summary: "Two connected apps designed in a month — an order moves from checkout to delivery inside one system.",
+        description: "A water delivery service with a client app for ordering and a courier app for orders, clients and promotions. I linked the two scenarios so order statuses match on both sides, and handed both apps to development with every screen state ready.",
+        highlights: [
+            "Client app: address, catalog, checkout and order tracking",
+            "Courier app: orders and delivery, clients, archive and promotions",
+            "Order statuses that stay in sync between client and courier",
+            "Both apps designed in a month, handed off with complete states"
+        ],
+        tags: [
+            "iOS",
+            "Android",
+            "Delivery"
+        ],
+        accent: "#3D8BFF",
+        cover: cover("waterx", "Water X — overview"),
+        gallery: [
+            {
+                src: "/work/waterx/client-catalog.webp",
+                w: 2400,
+                h: 989,
+                caption: "Client · Catalog & checkout"
+            },
+            {
+                src: "/work/waterx/client-tracking.webp",
+                w: 2400,
+                h: 920,
+                caption: "Client · Orders & tracking"
+            },
+            {
+                src: "/work/waterx/courier-orders.webp",
+                w: 2400,
+                h: 740,
+                caption: "Courier · Orders & delivery"
+            }
+        ]
+    },
+    {
+        slug: "uysot-reports",
+        name: "UYSOT Reports",
+        kind: "saas",
+        category: "SaaS · Reporting",
+        title: "No-code report builder for sales teams",
+        year: "2023 — present",
+        role: "Product Designer",
+        platform: "Web app",
+        scope: "Builder · Formulas · Plan vs. fact",
+        summary: "Custom columns, filters, formulas and plan-vs-fact tracking — reports without asking a developer.",
+        description: "Sales managers create their own reports: pick a data source, add columns and filters, write formulas and compare plan with fact per manager. The builder keeps a complex data model approachable for non-technical users.",
+        highlights: [
+            "Column builder with data sources, measures and filters",
+            "Formulas and grouping by manager or source",
+            "Plan vs. fact tables for sales teams"
+        ],
+        tags: [
+            "Web app",
+            "Reporting",
+            "Tables"
+        ],
+        accent: "#1FB5A0",
+        cover: cover("reports", "UYSOT Reports — overview"),
+        gallery: [
+            {
+                src: "/work/reports/02-builder.webp",
+                w: 2400,
+                h: 2168,
+                caption: "Custom report builder"
+            }
+        ]
+    },
+    {
+        slug: "jamal",
+        name: "JAMAL.UZ",
+        kind: "saas",
+        category: "Admin panel · Inventory & sales",
+        title: "Web and mobile admin for a trading business",
+        year: "",
+        role: "Product Designer",
+        platform: "Web & mobile",
+        scope: "Light & Dark",
+        summary: "Products, inventory counts, sales, reports and directories — on web and mobile, in light and dark.",
+        description: "An admin system for a trading company: product catalog and inventory, warehouses and suppliers, sales, clients and users, and reports — with dense data tables that stay readable in both themes and a mobile version for working on the go.",
+        highlights: [
+            "Data-heavy tables for products, stock and sales",
+            "Reports with filters across warehouses, suppliers and sellers",
+            "Mobile app for checking stock on the go"
+        ],
+        tags: [
             "Web",
             "Mobile",
-            "Telegram Mini App"
+            "Inventory"
         ],
-        metric: {
-            value: "4 / 5",
-            label: "companies / stores in production"
-        },
-        live: "https://daqiq.uz",
-        accent: "#7C4DFF",
-        cover: "/work/daqiq/cover.webp",
+        accent: "#7A6BFF",
+        cover: cover("jamal", "JAMAL.UZ — overview"),
         gallery: [
             {
-                src: "/work/daqiq/1.webp",
-                w: 1600,
-                h: 1200
+                src: "/work/jamal/02-reports.webp",
+                w: 2400,
+                h: 1566,
+                caption: "Reports"
             },
             {
-                src: "/work/daqiq/2.webp",
-                w: 1600,
-                h: 1200
-            },
-            {
-                src: "/work/daqiq/3.webp",
-                w: 1600,
-                h: 1200
-            },
-            {
-                src: "/work/daqiq/4.webp",
-                w: 1600,
-                h: 1200
-            },
-            {
-                src: "/work/daqiq/5.webp",
-                w: 1600,
-                h: 1200
-            },
-            {
-                src: "/work/daqiq/6.webp",
-                w: 1600,
-                h: 1200
-            },
-            {
-                src: "/work/daqiq/7.webp",
-                w: 1600,
-                h: 1200
-            },
-            {
-                src: "/work/daqiq/8.webp",
-                w: 1600,
-                h: 1200
-            },
-            {
-                src: "/work/daqiq/9.webp",
-                w: 1600,
-                h: 1200
+                src: "/work/jamal/04-sales.webp",
+                w: 2400,
+                h: 1269,
+                caption: "Sales"
             }
         ]
     },
     {
-        slug: "qarz-daftar",
-        index: "03",
-        name: "Qarz Daftar",
-        title: "Debt & customer management platform",
-        category: "Mobile · Fintech",
-        year: "2026",
-        role: "React Native Developer & Product / UI Designer",
-        summary: "A mobile ledger that replaces paper debt books for small businesses, with payment flows, reports and automatic SMS reminders.",
-        description: "Qarz Daftar is a mobile debt and customer management platform built for small businesses. I worked on the product experience and frontend implementation, including customer management, debt/payment workflows, reporting, SMS reminders, responsive UI states, and business logic integration. The goal was to replace manual debt tracking with a clear, scalable, production-ready mobile experience.",
+        slug: "ticher",
+        name: "TICHER",
+        kind: "mobile",
+        category: "Mobile app · EdTech for parents",
+        title: "A school app for parents",
+        year: "",
+        role: "Product Designer",
+        platform: "iOS & Android",
+        scope: "30+ screens",
+        summary: "The child's test results, attendance, grades and behavior, reports, teacher chat, meetings and a premium plan.",
+        description: "TICHER keeps parents close to their child's school life: test results and ratings, activity and attendance, reports and parent–teacher meetings, chat and a premium subscription.",
         highlights: [
-            "Product and UI design through to implementation",
-            "Customer, debt and payment workflows",
-            "SMS reminders that drive customer follow-ups",
-            "Organization settings, security and plan limits"
+            "Test results and ratings parents understand at a glance",
+            "Weekly and monthly activity statistics",
+            "Teacher chat, meetings and notifications"
         ],
-        stack: [
-            "React Native",
-            "TypeScript",
-            "REST API",
-            "UX & UI"
-        ],
-        platforms: [
+        tags: [
             "iOS",
-            "Android"
+            "Android",
+            "EdTech"
         ],
-        metric: {
-            value: "531",
-            label: "active users"
-        },
-        live: "https://qarzdaftar.rbsx.uz",
-        accent: "#F08A5D",
-        cover: "/work/qarz-daftar/cover.webp",
+        accent: "#2F7BFF",
+        cover: cover("ticher", "TICHER — overview"),
         gallery: [
             {
-                src: "/work/qarz-daftar/1.webp",
-                w: 1000,
-                h: 750
+                src: "/work/ticher/01-home.webp",
+                w: 2400,
+                h: 2109,
+                caption: "Sign-in & home"
             },
             {
-                src: "/work/qarz-daftar/2.webp",
-                w: 1000,
-                h: 750
-            },
-            {
-                src: "/work/qarz-daftar/3.webp",
-                w: 1000,
-                h: 750
-            },
-            {
-                src: "/work/qarz-daftar/4.webp",
-                w: 1000,
-                h: 750
-            },
-            {
-                src: "/work/qarz-daftar/5.webp",
-                w: 1000,
-                h: 750
-            },
-            {
-                src: "/work/qarz-daftar/6.webp",
-                w: 1000,
-                h: 750
+                src: "/work/ticher/02-results.webp",
+                w: 2400,
+                h: 1053,
+                caption: "Learning results"
             }
         ]
     },
     {
-        slug: "baxt",
-        index: "04",
-        name: "Baxt Restaurant",
-        title: "Online food ordering website",
-        category: "Hospitality · Web",
+        slug: "base360",
+        name: "Base360",
+        kind: "web",
+        category: "Web · Landing page",
+        title: "Landing page and base360.ai improvement",
         year: "2026",
-        role: "Frontend Developer",
-        summary: "Ordering site for a national-cuisine restaurant in Samarkand: 119+ dishes, search, filters, cart and three languages.",
-        description: "Online ordering website for Baxt, a national cuisine restaurant in Samarkand. Customers browse 119+ dishes in 10 categories, search the menu, filter by price and dish type, and order through a built-in cart.",
+        role: "Product Designer · Test assignment",
+        platform: "Desktop 1440 · Tablet 810 · Mobile 390",
+        scope: "12 screens · 32 components",
+        summary: "A responsive landing page from a brief, plus a redesign proposal for base360.ai — in light and dark.",
+        description: "A test assignment: a landing page designed from the brief across desktop, tablet and mobile, a case study improving the existing base360.ai, and the foundations and UI kit behind both — 32 components in light and dark modes.",
         highlights: [
-            "Responsive Next.js UI for phone and desktop",
-            "Menu with categories, search, filters and combo deals",
-            "Cart and order flow with user accounts",
-            "Uzbek, Russian and English"
+            "Responsive layouts for 1440, 810 and 390",
+            "Case study with proposed improvements to base360.ai",
+            "Foundations and a 32-component UI kit in light and dark"
         ],
-        stack: [
-            "Next.js",
-            "React",
-            "Responsive Design"
+        tags: [
+            "Web",
+            "Landing",
+            "UI kit"
         ],
-        platforms: [
-            "Web"
-        ],
-        metric: {
-            value: "119+",
-            label: "dishes across 10 categories"
-        },
-        live: "https://baxtrestoran.uz",
-        accent: "#E5483A",
-        cover: "/work/baxt/cover.webp",
+        accent: "#8BE35F",
+        cover: cover("base360", "Base360 — overview"),
         gallery: [
             {
-                src: "/work/baxt/1.webp",
-                w: 1536,
-                h: 736
+                src: "/work/base360/01-highlights.webp",
+                w: 2400,
+                h: 1535,
+                caption: "Highlights"
             },
             {
-                src: "/work/baxt/2.webp",
-                w: 1536,
-                h: 736
+                src: "/work/base360/02-desktop.webp",
+                w: 1800,
+                h: 4417,
+                caption: "Desktop · 1440"
             },
             {
-                src: "/work/baxt/3.webp",
-                w: 1536,
-                h: 736
+                src: "/work/base360/05-case.webp",
+                w: 1800,
+                h: 4683,
+                caption: "Case study"
+            },
+            {
+                src: "/work/base360/06-foundations.webp",
+                w: 1800,
+                h: 2735,
+                caption: "Foundations"
             }
         ]
     }
 ];
 const services = [
     {
-        title: "SaaS Development",
-        body: "Business platforms, subscription products and web applications built to scale with the company using them."
+        title: "End-to-end product design",
+        body: "From the spec to handoff on web and mobile — the team gets finished decisions, not loose screens."
     },
     {
-        title: "ERP & CRM Systems",
-        body: "Business management, customer management, operational workflows and internal tools teams rely on daily."
+        title: "Complex B2B interfaces",
+        body: "CRM, ERP, dashboards and dense tables made clear for users with very different roles."
     },
     {
-        title: "React Native Apps",
-        body: "Cross-platform iOS and Android applications with React Native and Expo, including offline-first flows."
+        title: "UX architecture",
+        body: "User flows, information architecture, wireframes and every edge case worked out before the UI."
     },
     {
-        title: "Admin Dashboards",
-        body: "Data tables, analytics, filtering, search, complex forms and role-based interfaces."
+        title: "Mobile apps",
+        body: "iOS and Android products, including carrying web scenarios to mobile with the same logic."
     },
     {
-        title: "Next.js Web Apps",
-        body: "Modern websites and web applications with fast, responsive, accessible frontends."
+        title: "Design systems",
+        body: "Figma variables and tokens, components, Auto Layout, light and dark themes, documentation."
     },
     {
-        title: "API Integration",
-        body: "REST integrations, authentication flows, data fetching and reliable frontend–backend communication."
-    },
-    {
-        title: "Code Improvement",
-        body: "Refactoring, bug fixing, performance work and extending existing applications without a rewrite."
+        title: "Prototyping",
+        body: "Interactive prototypes that let the team check scenarios before development starts."
     }
 ];
 const principles = [
     {
-        title: "Business first",
-        body: "I understand the workflow and requirements before deciding how to implement them."
+        title: "Start from the spec",
+        body: "I read the requirements first and understand the business logic before drawing anything."
     },
     {
-        title: "Clean architecture",
-        body: "Reusable components, TypeScript and consistent patterns that the next developer can follow."
+        title: "Every role, every edge case",
+        body: "Multi-role scenarios and edge cases are designed up front — developers get fewer questions and less rework."
     },
     {
-        title: "Every state handled",
-        body: "Loading, empty, error, validation and edge cases are designed, not discovered in production."
+        title: "Buildable by design",
+        body: "Layouts are handed off with every screen state ready, so they reach production without losses."
     },
     {
-        title: "API-driven",
-        body: "Interfaces connected to real backend services and real application data from day one."
+        title: "Review before release",
+        body: "I set up a design review process so mistakes are found before development, not after release."
     },
     {
-        title: "Responsive by default",
-        body: "Layouts that hold up across the screens and devices your users actually have."
+        title: "One UX across products",
+        body: "CRM, mobile app and marketplace share one approach, so the whole ecosystem feels like one product."
     },
     {
-        title: "Clear communication",
-        body: "Progress updates, early clarification of requirements and blockers raised promptly."
+        title: "Inside the sprint",
+        body: "I work with PMs, POs and developers in sprints, from user flow and prototype to handoff and QA."
     }
 ];
 const experience = [
     {
-        company: "Artel Electronics",
-        role: "Software Developer"
+        company: "UYQUR",
+        role: "Product Designer",
+        period: "Oct 2024 — present",
+        product: "SaaS for managing construction projects",
+        points: [
+            "Lead product design end-to-end on web and mobile — from spec to handoff",
+            "Turned complex business requirements into interfaces that work for every user role",
+            "Carried web scenarios to mobile with the same logic"
+        ]
     },
     {
-        company: "IT Park Uzbekistan",
-        role: "Frontend Development Mentor & Manager"
+        company: "UYSOT",
+        role: "Product Designer",
+        period: "Jan 2023 — present",
+        product: "Software ecosystem for real-estate developers",
+        points: [
+            "Built the LUNAR design system from scratch: tokens, light and dark themes, components, documentation",
+            "Introduced a design review process that catches mistakes before development",
+            "Design the CRM, mobile app and marketplace with one UX approach"
+        ]
     },
     {
-        company: "Microsoft IT Academy",
-        role: "Frontend Developer"
+        company: "Driver Five · SUV OL",
+        role: "UI/UX Designer",
+        period: "Nov 2025 — Aug 2026",
+        product: "Contract & freelance · taxi and water delivery",
+        points: [
+            "Designed a taxi driver app from zero, with interactive prototypes",
+            "Designed two linked water-delivery apps — client and courier — in a month"
+        ]
     }
 ];
-const education = {
-    school: "Tashkent University of Information Technologies",
-    degree: "Bachelor of Computer Science — Computer Engineering",
-    end: "2027"
-};
-const stack = [
+const skills = [
     {
-        group: "Web",
+        group: "Design",
         items: [
-            "React",
-            "Next.js",
-            "TypeScript",
-            "JavaScript",
-            "Tailwind CSS",
-            "Ant Design"
+            "Product design",
+            "UX / UI",
+            "User flows",
+            "Information architecture",
+            "Wireframes",
+            "Prototyping"
         ]
     },
     {
-        group: "Mobile",
+        group: "Domains",
         items: [
-            "React Native",
-            "Expo",
-            "Offline sync",
-            "GPS / Maps"
+            "SaaS & B2B",
+            "CRM / ERP",
+            "Dashboards & complex tables",
+            "Fintech",
+            "AI features",
+            "iOS & Android"
         ]
     },
     {
-        group: "Data & State",
+        group: "Design systems",
         items: [
-            "Redux Toolkit",
-            "React Query",
-            "REST APIs",
-            "API Integration"
+            "Figma variables & tokens",
+            "Components",
+            "Auto Layout",
+            "Light & dark themes",
+            "Documentation"
         ]
     },
     {
-        group: "Workflow",
+        group: "Teamwork",
         items: [
-            "Figma",
-            "Git",
-            "GitHub",
-            "Dashboards"
+            "Sprints with PM & PO",
+            "Design reviews",
+            "Developer handoff"
         ]
     }
 ];
@@ -618,12 +820,12 @@ const languages = [
         level: "Native"
     },
     {
-        name: "English",
-        level: "Conversational"
+        name: "Russian",
+        level: "B2"
     },
     {
-        name: "Russian",
-        level: "Conversational"
+        name: "English",
+        level: "A2"
     }
 ];
 }),
@@ -665,7 +867,7 @@ const metadata = {
         title: `${__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$data$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["profile"].name} — ${__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$data$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["profile"].role}`,
         description: __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$data$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["profile"].intro,
         images: [
-            "/work/nst-control/cover.webp"
+            "/work/og/cover.webp"
         ],
         type: "website"
     },

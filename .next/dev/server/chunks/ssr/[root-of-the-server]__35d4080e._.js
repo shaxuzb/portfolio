@@ -155,7 +155,7 @@ async function generateMetadata({ params }) {
         description: project.summary,
         openGraph: {
             images: [
-                project.cover
+                project.cover.src
             ]
         }
     };

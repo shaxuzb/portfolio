@@ -1,0 +1,17 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/[lang]/layout,_N_T_/[lang]/work/layout,_N_T_/[lang]/work/[slug]/layout,_N_T_/[lang]/work/[slug]/page,_N_T_/ru/work/driver-five"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/$d$lang/work/$d$slug/__PAGE__",
+    "/$d$lang/work/$d$slug",
+    "/$d$lang/work",
+    "/$d$lang",
+    "/_index",
+    "/_head"
+  ]
+}
