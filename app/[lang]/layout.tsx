@@ -27,6 +27,12 @@ const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
 })
 
+// Absolute base for preview links. Set NEXT_PUBLIC_SITE_URL to the live domain;
+// on Vercel the production URL is used automatically.
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : "http://localhost:3000")
+
 export const dynamicParams = false
 
 export function generateStaticParams() {
@@ -38,10 +44,18 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   if (!isLocale(lang)) return {}
   const title = `${profile.name[lang]} — ${profile.role[lang]}`
   return {
+    metadataBase: new URL(siteUrl),
     title: { default: title, template: `%s — ${profile.name[lang]}` },
     description: profile.intro[lang],
     alternates: { languages: Object.fromEntries(locales.map((l) => [htmlLang[l], `/${l}`])) },
-    openGraph: { title, description: profile.intro[lang], images: ["/work/og/cover.webp"], type: "website" },
+    openGraph: {
+      title,
+      description: profile.intro[lang],
+      type: "website",
+      siteName: profile.name[lang],
+      locale: { uz: "uz_UZ", ru: "ru_RU", en: "en_US" }[lang],
+    },
+    twitter: { card: "summary_large_image", title, description: profile.intro[lang] },
     icons: {
       icon: [
         { url: "/icon-light-32x32.png", media: "(prefers-color-scheme: light)" },

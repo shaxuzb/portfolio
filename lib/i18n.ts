@@ -134,6 +134,10 @@ export const ui = {
     designed: l("What I designed", "Что я спроектировал", "Nimalarni loyihaladim"),
     next: l("Next project", "Следующий проект", "Keyingi loyiha"),
   },
+  og: {
+    caseStudy: l("Case study", "Кейс", "Keys"),
+    alt: l("Mahmud Namazov — Product Designer portfolio", "Махмуд Намазов — портфолио продуктового дизайнера", "Mahmud Namazov — product dizayner portfoliosi"),
+  },
   cursor: {
     view: l("View", "Смотреть", "Ko‘rish"),
     viewCase: l("View case", "Кейс", "Keys"),

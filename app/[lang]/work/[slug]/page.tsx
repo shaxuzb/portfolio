@@ -22,7 +22,8 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
     title: `${project.name} — ${project.title[lang]}`,
     description: project.summary[lang],
     alternates: { languages: Object.fromEntries(locales.map((l) => [l, `/${l}/work/${slug}`])) },
-    openGraph: { images: [project.cover.src] },
+    openGraph: { title: `${project.name} — ${project.title[lang]}`, description: project.summary[lang], type: "article" },
+    twitter: { card: "summary_large_image", title: `${project.name} — ${project.title[lang]}`, description: project.summary[lang] },
   }
 }
 

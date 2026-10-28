@@ -1,0 +1,3 @@
+module.exports=[18362,a=>{"use strict";a.i(99475),a.i(70396),a.i(73727);var b=a.i(65339),c=a.i(82193),d=a.i(68871);let e=b.ogSize;var f=a.i(52425);let g={alt:"Case study — Mahmud Namazov",contentType:"image/png",generateStaticParams:function(){return d.locales.flatMap(a=>c.projects.map(b=>({lang:a,slug:b.slug})))},size:e};async function h(a){let{__metadata_id__:b,...c}=await a.params,d=(0,f.fillMetadataSegment)("/[lang]/work/[slug]",c,"opengraph-image");return[function(a,b){let c={alt:a.alt,type:a.contentType||"image/png",url:d+"?994084a68e685805"},{size:e}=a;return e&&(c.width=e.width,c.height=e.height),c}(g,0)]}a.s(["default",0,h],18362)}];
+
+//# sourceMappingURL=app_%5Blang%5D_work_%5Bslug%5D_opengraph-image--metadata_4d4f9df6.js.map

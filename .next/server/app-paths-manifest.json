@@ -1,5 +1,7 @@
 {
+  "/[lang]/opengraph-image/route": "app/[lang]/opengraph-image/route.js",
   "/[lang]/page": "app/[lang]/page.js",
+  "/[lang]/work/[slug]/opengraph-image/route": "app/[lang]/work/[slug]/opengraph-image/route.js",
   "/[lang]/work/[slug]/page": "app/[lang]/work/[slug]/page.js",
   "/_global-error/page": "app/_global-error/page.js",
   "/_not-found/page": "app/_not-found/page.js"

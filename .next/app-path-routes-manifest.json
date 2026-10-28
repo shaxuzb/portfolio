@@ -1,5 +1,7 @@
 {
+  "/[lang]/opengraph-image/route": "/[lang]/opengraph-image",
   "/[lang]/page": "/[lang]",
+  "/[lang]/work/[slug]/opengraph-image/route": "/[lang]/work/[slug]/opengraph-image",
   "/[lang]/work/[slug]/page": "/[lang]/work/[slug]",
   "/_global-error/page": "/_global-error",
   "/_not-found/page": "/_not-found"

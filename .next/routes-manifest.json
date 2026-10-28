@@ -30,6 +30,14 @@
       "namedRegex": "^/(?<nxtPlang>[^/]+?)(?:/)?$"
     },
     {
+      "page": "/[lang]/opengraph-image",
+      "regex": "^/([^/]+?)/opengraph\\-image(?:/)?$",
+      "routeKeys": {
+        "nxtPlang": "nxtPlang"
+      },
+      "namedRegex": "^/(?<nxtPlang>[^/]+?)/opengraph\\-image(?:/)?$"
+    },
+    {
       "page": "/[lang]/work/[slug]",
       "regex": "^/([^/]+?)/work/([^/]+?)(?:/)?$",
       "routeKeys": {
@@ -37,6 +45,15 @@
         "nxtPslug": "nxtPslug"
       },
       "namedRegex": "^/(?<nxtPlang>[^/]+?)/work/(?<nxtPslug>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/[lang]/work/[slug]/opengraph-image",
+      "regex": "^/([^/]+?)/work/([^/]+?)/opengraph\\-image(?:/)?$",
+      "routeKeys": {
+        "nxtPlang": "nxtPlang",
+        "nxtPslug": "nxtPslug"
+      },
+      "namedRegex": "^/(?<nxtPlang>[^/]+?)/work/(?<nxtPslug>[^/]+?)/opengraph\\-image(?:/)?$"
     }
   ],
   "staticRoutes": [
