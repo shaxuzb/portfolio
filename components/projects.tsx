@@ -1,138 +1,125 @@
 "use client"
 
-import { useEffect, useState } from "react"
-import { ExternalLink, Github } from "lucide-react"
+import Image from "next/image"
+import Link from "next/link"
+import { useRef } from "react"
+import { motion, useScroll, useTransform } from "motion/react"
+import { ArrowUpRight } from "lucide-react"
+import { projects, type Project } from "@/lib/data"
+import { FadeIn, LineReveal } from "@/components/reveal"
 
-const projects = [
-  {
-    title: "E-Commerce Platform",
-    description: "A full-featured e-commerce solution with real-time inventory management and payment integration.",
-    tags: ["React", "Next.js", "PostgreSQL", "Stripe"],
-    image: "/ecommerce-platform.jpg",
-    link: "#",
-    github: "#",
-  },
-  {
-    title: "Design System",
-    description: "Comprehensive design system with reusable components and documentation for consistent UI/UX.",
-    tags: ["React", "Storybook", "TypeScript", "Tailwind"],
-    image: "/design-system-abstract.png",
-    link: "#",
-    github: "#",
-  },
-  {
-    title: "Analytics Dashboard",
-    description: "Interactive dashboard for real-time data visualization and business intelligence insights.",
-    tags: ["Next.js", "Chart.js", "API", "Analytics"],
-    image: "/analytics-dashboard.png",
-    link: "#",
-    github: "#",
-  },
-  {
-    title: "Mobile App",
-    description: "Cross-platform mobile application built with modern frameworks and best practices.",
-    tags: ["React Native", "Firebase", "Redux", "TypeScript"],
-    image: "/mobile-app.jpg",
-    link: "#",
-    github: "#",
-  },
-  {
-    title: "Collaboration Tool",
-    description: "Real-time collaboration platform with live editing and instant notifications.",
-    tags: ["WebSocket", "React", "Node.js", "MongoDB"],
-    image: "/collaboration-tool.jpg",
-    link: "#",
-    github: "#",
-  },
-  {
-    title: "AI Content Generator",
-    description: "AI-powered content generation tool with advanced customization and export options.",
-    tags: ["Next.js", "AI API", "OpenAI", "TypeScript"],
-    image: "/ai-content-generator.jpg",
-    link: "#",
-    github: "#",
-  },
-]
-
-export default function Projects() {
-  const [isVisible, setIsVisible] = useState(false)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setIsVisible(true)
-      }
-    })
-
-    const element = document.getElementById("projects-section")
-    if (element) {
-      observer.observe(element)
-    }
-
-    return () => observer.disconnect()
-  }, [])
+function ProjectRow({ project, flip }: { project: Project; flip: boolean }) {
+  const ref = useRef<HTMLElement>(null)
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] })
+  const clip = useTransform(scrollYProgress, [0, 0.35], ["inset(12% 6% 12% 6% round 20px)", "inset(0% 0% 0% 0% round 14px)"])
 
   return (
-    <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto">
-        <div id="projects-section" className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold mb-4">Featured Projects</h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Showcasing a selection of my most impactful and innovative work
-          </p>
-        </div>
+    <article ref={ref} className="border-t border-line py-12 sm:py-16 lg:py-24">
+      <FadeIn className="mb-8 flex items-center justify-between gap-4 sm:mb-10" y={12}>
+        <span className="label">
+          <span className="text-paper">{project.index}</span> / {project.category}
+        </span>
+        <span className="label">{project.year}</span>
+      </FadeIn>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <div
-              key={index}
-              className={`group rounded-xl border border-border overflow-hidden bg-card hover:border-primary transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 transform hover:-translate-y-1 ${
-                isVisible ? "animate-fade-in-up" : "opacity-0"
-              }`}
-              style={{ animationDelay: `${index * 0.1}s` }}
+      <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
+        <Link
+          href={`/work/${project.slug}`}
+          data-cursor="View case"
+          className={`group block lg:col-span-7 ${flip ? "lg:order-2 lg:col-start-6" : ""}`}
+          aria-label={`${project.name} case study`}
+        >
+          <motion.div style={{ clipPath: clip }} className="relative aspect-[4/3] overflow-hidden bg-ink-2">
+            <Image
+              src={project.cover}
+              alt={`${project.name} — ${project.title}`}
+              fill
+              sizes="(min-width: 1024px) 58vw, 100vw"
+              className="object-cover transition-transform duration-[1.6s] ease-[var(--ease-out-expo)] group-hover:scale-[1.025]"
+            />
+          </motion.div>
+        </Link>
+
+        <div className={`flex flex-col justify-between lg:col-span-5 ${flip ? "lg:order-1" : ""}`}>
+          <div>
+            <LineReveal
+              as="h3"
+              className="text-[clamp(2.6rem,5.2vw,5rem)] font-medium leading-[0.95] tracking-[-0.045em]"
+              lines={[project.name]}
+            />
+            <FadeIn delay={0.1}>
+              <p className="mt-3 font-serif text-2xl italic text-paper-dim sm:text-3xl">{project.title}</p>
+              <p className="mt-6 max-w-[46ch] text-[17px] leading-relaxed text-paper-dim">{project.summary}</p>
+            </FadeIn>
+          </div>
+
+          <FadeIn delay={0.2} className="mt-10">
+            {project.metric && (
+              <div className="flex items-end gap-4 border-t border-line pt-6">
+                <span className="text-6xl font-medium leading-none tracking-[-0.05em]" style={{ color: project.accent }}>
+                  {project.metric.value}
+                </span>
+                <span className="max-w-[16ch] pb-1 text-sm leading-snug text-paper-dim">{project.metric.label}</span>
+              </div>
+            )}
+            <dl className="mt-6 grid grid-cols-2 gap-x-6 gap-y-4 border-t border-line pt-6 text-sm">
+              <div>
+                <dt className="label mb-1.5">Role</dt>
+                <dd className="leading-snug">{project.role}</dd>
+              </div>
+              <div>
+                <dt className="label mb-1.5">Platforms</dt>
+                <dd className="leading-snug">{project.platforms.join(", ")}</dd>
+              </div>
+            </dl>
+            <ul className="mt-6 flex flex-wrap gap-2">
+              {project.stack.map((s) => (
+                <li key={s} className="rounded-full border border-line px-3 py-1 text-xs text-paper-dim">
+                  {s}
+                </li>
+              ))}
+            </ul>
+            <Link
+              href={`/work/${project.slug}`}
+              className="group mt-8 inline-flex items-center gap-2 text-[15px] font-medium"
             >
-              <div className="relative overflow-hidden h-48 bg-muted z-10 ">
-                <img
-                  src={project.image || "/placeholder.svg"}
-                  alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-linear-to-t from-background via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </div>
-
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">{project.title}</h3>
-                <p className="text-muted-foreground text-sm mb-4">{project.description}</p>
-
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map((tag, tagIdx) => (
-                    <span key={tagIdx} className="px-3 py-1 text-xs rounded-full bg-primary/20 text-primary">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="flex gap-4">
-                  <a
-                    href={project.link}
-                    className="flex items-center gap-2 text-sm text-primary hover:text-accent transition-colors"
-                  >
-                    <ExternalLink size={16} />
-                    View
-                  </a>
-                  <a
-                    href={project.github}
-                    className="flex items-center gap-2 text-sm text-primary hover:text-accent transition-colors"
-                  >
-                    <Github size={16} />
-                    Code
-                  </a>
-                </div>
-              </div>
-            </div>
-          ))}
+              <span className="link-underline">View case study</span>
+              <ArrowUpRight size={16} className="transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </Link>
+          </FadeIn>
         </div>
       </div>
+    </article>
+  )
+}
+
+export default function Projects() {
+  return (
+    <section id="work" className="container-x scroll-mt-16 pt-24 sm:pt-32">
+      <div className="mb-14 grid gap-8 sm:mb-20 lg:grid-cols-12">
+        <div className="lg:col-span-7">
+          <p className="label mb-6">(01) Selected work</p>
+          <LineReveal
+            className="text-[clamp(2.75rem,7vw,7rem)] font-medium leading-[0.92] tracking-[-0.045em]"
+            lines={[
+              "Products in",
+              <>
+                <span className="font-serif font-normal italic text-paper-dim">daily</span> production
+              </>,
+            ]}
+          />
+        </div>
+        <FadeIn delay={0.15} className="self-end lg:col-span-4 lg:col-start-9">
+          <p className="max-w-[40ch] text-[17px] leading-relaxed text-paper-dim">
+            Not concept shots. Each of these is used by real teams, stores and customers — tracking field staff, running
+            retail operations, collecting debts and taking orders.
+          </p>
+        </FadeIn>
+      </div>
+
+      {projects.map((p, i) => (
+        <ProjectRow key={p.slug} project={p} flip={i % 2 === 1} />
+      ))}
     </section>
   )
 }

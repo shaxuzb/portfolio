@@ -1,156 +1,112 @@
 "use client"
 
-import type React from "react"
-
-import { useState } from "react"
-import { Mail, Linkedin, Github, Twitter, Send } from "lucide-react"
+import Link from "next/link"
+import { ArrowUpRight } from "lucide-react"
+import { profile, projects } from "@/lib/data"
+import { FadeIn, LineReveal, Magnetic } from "@/components/reveal"
+import LocalTime from "@/components/local-time"
 
 export default function Contact() {
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" })
-  const [isSubmitted, setIsSubmitted] = useState(false)
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value })
-  }
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitted(true)
-    setTimeout(() => setIsSubmitted(false), 3000)
-    setFormData({ name: "", email: "", message: "" })
-  }
-
   return (
-    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 bg-card/50">
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-16 animate-fade-in-up">
-          <h2 className="text-4xl sm:text-5xl font-bold mb-4">Get In Touch</h2>
-          <p className="text-muted-foreground text-lg">
-            I'm always interested in hearing about new projects and opportunities.
-          </p>
+    <footer id="contact" className="relative scroll-mt-16 overflow-hidden border-t border-line">
+      <div className="container-x pb-10 pt-24 sm:pt-32">
+        <p className="label mb-10 flex items-center gap-2">
+          <span className="size-1.5 rounded-full bg-ok animate-pulse-dot" />
+          {profile.availability} · {profile.hours}
+        </p>
+
+        <div className="grid items-end gap-12 lg:grid-cols-12">
+          <LineReveal
+            className="text-[clamp(3.25rem,10vw,10rem)] font-medium leading-[0.9] tracking-[-0.05em] lg:col-span-9"
+            lines={[
+              "Have a product",
+              <>
+                in <span className="font-serif font-normal italic text-paper-dim">mind?</span>
+              </>,
+            ]}
+          />
+          <FadeIn delay={0.2} className="lg:col-span-3 lg:justify-self-end">
+            <Magnetic strength={0.4}>
+              <a
+                href={profile.upwork}
+                target="_blank"
+                rel="noreferrer"
+                data-cursor="Let's talk"
+                className="group grid size-40 place-items-center rounded-full bg-paper text-center text-ink transition-transform duration-700 ease-[var(--ease-out-expo)] hover:scale-105 sm:size-48"
+              >
+                <span className="flex flex-col items-center gap-2 text-[15px] font-medium leading-tight">
+                  <ArrowUpRight size={26} className="transition-transform duration-500 group-hover:rotate-45" />
+                  Start a project
+                </span>
+              </a>
+            </Magnetic>
+          </FadeIn>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12">
-          {/* Contact Form */}
-          <div className="animate-slide-in-left">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label className="block text-sm font-medium mb-2">Name</label>
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors"
-                  placeholder="Your name"
-                />
-              </div>
+        <FadeIn delay={0.1}>
+          <p className="mt-12 max-w-[52ch] text-[17px] leading-relaxed text-paper-dim">
+            Send what you&apos;re building, the current challenges, or the features you need. I&apos;ll help clarify the
+            requirements, outline a practical approach and the next steps.
+          </p>
+        </FadeIn>
 
-              <div>
-                <label className="block text-sm font-medium mb-2">Email</label>
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors"
-                  placeholder="your@email.com"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium mb-2">Message</label>
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows={4}
-                  className="w-full px-4 py-2 rounded-lg border border-border bg-background focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors resize-none"
-                  placeholder="Your message..."
-                />
-              </div>
-
-              <button
-                type="submit"
-                className="w-full px-6 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:shadow-lg hover:shadow-primary/50 transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2"
-              >
-                <Send size={18} />
-                Send Message
-              </button>
-
-              {isSubmitted && (
-                <div className="p-4 rounded-lg bg-green-500/20 text-green-600 text-sm">
-                  ✓ Message sent successfully! I'll get back to you soon.
-                </div>
+        <div className="mt-24 grid gap-10 border-t border-line pt-10 sm:grid-cols-2 lg:grid-cols-4">
+          <div>
+            <h3 className="label mb-4">Contact</h3>
+            <ul className="space-y-1.5 text-[15px]">
+              <li>
+                <a href={profile.upwork} target="_blank" rel="noreferrer" className="link-underline">
+                  Upwork
+                </a>
+              </li>
+              {profile.email && (
+                <li>
+                  <a href={`mailto:${profile.email}`} className="link-underline">
+                    {profile.email}
+                  </a>
+                </li>
               )}
-            </form>
+            </ul>
           </div>
-
-          {/* Contact Info */}
-          <div className="animate-slide-in-right space-y-8">
-            <div>
-              <h3 className="text-xl font-bold mb-6">Contact Information</h3>
-
-              <div className="space-y-4">
-                <a
-                  href="mailto:hello@example.com"
-                  className="flex items-center gap-4 p-4 rounded-lg border border-border hover:border-primary hover:bg-card/50 transition-all duration-300"
-                >
-                  <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
-                    <Mail className="text-primary" size={20} />
-                  </div>
-                  <div>
-                    <p className="text-sm text-muted-foreground">Email</p>
-                    <p className="font-semibold">hello@example.com</p>
-                  </div>
-                </a>
-
-                <a
-                  href="#"
-                  className="flex items-center gap-4 p-4 rounded-lg border border-border hover:border-primary hover:bg-card/50 transition-all duration-300"
-                >
-                  <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
-                    <Linkedin className="text-primary" size={20} />
-                  </div>
-                  <div>
-                    <p className="text-sm text-muted-foreground">LinkedIn</p>
-                    <p className="font-semibold">linkedin.com/in/yourprofile</p>
-                  </div>
-                </a>
-
-                <a
-                  href="#"
-                  className="flex items-center gap-4 p-4 rounded-lg border border-border hover:border-primary hover:bg-card/50 transition-all duration-300"
-                >
-                  <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
-                    <Github className="text-primary" size={20} />
-                  </div>
-                  <div>
-                    <p className="text-sm text-muted-foreground">GitHub</p>
-                    <p className="font-semibold">github.com/yourprofile</p>
-                  </div>
-                </a>
-
-                <a
-                  href="#"
-                  className="flex items-center gap-4 p-4 rounded-lg border border-border hover:border-primary hover:bg-card/50 transition-all duration-300"
-                >
-                  <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
-                    <Twitter className="text-primary" size={20} />
-                  </div>
-                  <div>
-                    <p className="text-sm text-muted-foreground">Twitter</p>
-                    <p className="font-semibold">@yourhandle</p>
-                  </div>
-                </a>
-              </div>
-            </div>
+          <div>
+            <h3 className="label mb-4">Work</h3>
+            <ul className="space-y-1.5 text-[15px]">
+              {projects.map((p) => (
+                <li key={p.slug}>
+                  <Link href={`/work/${p.slug}`} className="link-underline">
+                    {p.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h3 className="label mb-4">Local time</h3>
+            <p className="text-[15px]">
+              <LocalTime /> <span className="text-paper-mute">Tashkent, {profile.timezoneLabel}</span>
+            </p>
+          </div>
+          <div className="sm:text-right lg:text-right">
+            <h3 className="label mb-4">Navigate</h3>
+            <a href="#top" className="link-underline text-[15px]">
+              Back to top ↑
+            </a>
           </div>
         </div>
       </div>
-    </section>
+
+      <div className="container-x flex flex-col justify-between gap-2 border-t border-line py-6 sm:flex-row">
+        <p className="label">© {new Date().getFullYear()} {profile.name}</p>
+        <p className="label">Designed & built by hand in Next.js</p>
+      </div>
+
+      <div
+        aria-hidden
+        className="pointer-events-none select-none whitespace-nowrap px-2 text-center text-[21vw] font-medium leading-[0.78] tracking-[-0.07em] text-ink-3"
+      >
+        {profile.name.split(" ")[0]}
+        <span className="font-serif font-normal italic"> A.</span>
+      </div>
+    </footer>
   )
 }
